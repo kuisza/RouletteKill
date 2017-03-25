@@ -28,6 +28,7 @@ public class RouletteKiller {
     int loosingset = 0;
     int bets = 0;
     int spinswithoutbet = 0;
+    int doubledthemony = 0;
 
         // on the beginning we wait until we get 100 zeros
         while (loosingset < 100 ) {
@@ -96,6 +97,7 @@ public class RouletteKiller {
                 System.out.println("No you have " + budget +  "$, and you started with + " + startingbudget + "$.");
                 System.out.print("The program countinues in a few seconds");
                 random.delay(10);
+                doubledthemony++;
                 startingbudget = budget;
             }
 
@@ -135,7 +137,7 @@ public class RouletteKiller {
             System.out.println("Current balance: " + budget);
             System.out.println("Current loss: " + loss);
             System.out.println("This was the " + loosingset + ". bet without winning");
-
+            //when do we have to increase our stake?
             if( loss >= ourbets * 35){
                 System.out.println("We have to bet again.");
                 System.out.println("We have already made a loss of " + loss +
@@ -172,9 +174,14 @@ public class RouletteKiller {
 
         System.out.println("-----------------------");
         }
+        System.out.println("We lost after " + spin + " spins.");
+
         System.out.println("We had to spin " + spinswithoutbet + " times without a bet.");
+        System.out.println("Meaning, that we bet " + (spin - spinswithoutbet) + " times.");
+        System.out.println("We have doubled our money " + doubledthemony + " times.");
     }
 
 
 
 }
+
